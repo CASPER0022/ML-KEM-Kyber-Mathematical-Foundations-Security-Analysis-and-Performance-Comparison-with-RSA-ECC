@@ -1,0 +1,9 @@
+CPU: 12th Gen Intel(R) Core(TM) i5-12450HX
+Cores: 8 physical / 12 logical
+Max clock: 2400 MHz
+RAM: 15.7 GB
+OS: Windows-11-10.0.26200-SP0
+Python: 3.13.7 (CPython)
+cryptography: 50.0.1
+Note: "Max clock" is the base clock reported by Windows; turbo is higher.
+Note: hybrid CPU (4 P-cores + 4 E-cores) -- benchmark variance can come from core scheduling.
