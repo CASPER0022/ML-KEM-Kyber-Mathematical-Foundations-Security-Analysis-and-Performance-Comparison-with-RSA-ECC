@@ -1,0 +1,57 @@
+Goal: cover math, security proof intuition, implementation, benchmarking against RSA/ECC, and clean presentation. Split 4 members by role, work parallel.
+
+**Team roles**
+1. Member A: Math foundations (LWE, Module-LWE, lattice hardness)
+2. Member B: Scheme mechanics (Kyber/ML-KEM algorithm, FO transform, security proof)
+3. Member C: Implementation (code ML-KEM, or use pyca/liboqs, benchmark it)
+4. Member D: Comparison + report writing (RSA/ECC benchmarks, docs, slides)
+
+Everyone contributes to final report and demo, roles just own primary sections.
+
+**Week 1: Foundations + Build**
+
+Day 1-2:
+- All: Read FIPS 203, Kyber paper, Regev's LWE paper. Group discussion, align on notation.
+- A: Start writing math section (LWE → Module-LWE → Ring structure, why hard problem)
+- B: Study KeyGen/Encaps/Decaps algorithm, NTT usage, compression functions
+- C: Set up environment (Python/C, install liboqs or pycryptodome for RSA/ECC baseline)
+- D: Draft report skeleton, literature review section
+
+Day 3-5:
+- A: Finish math writeup, include hardness reduction diagram
+- B: Write CCA-security explanation (FO transform), draft security analysis section, note IND-CPA vs IND-CCA
+- C: Implement/import ML-KEM, get keygen/encaps/decaps running, verify correctness with test vectors from FIPS 203
+- D: Implement RSA-2048/3072 and ECC (P-256/Curve25519) baseline using standard libs
+
+Day 6-7 (checkpoint):
+- All: Sync. Confirm ML-KEM implementation works, matches known test vectors.
+- Freeze scope. Decide exact benchmarks to run (keygen time, encaps/decaps time, ciphertext/key size, memory).
+
+**Week 2: Analysis + Polish**
+
+Day 8-9:
+- C+D: Run benchmarks. Compare ML-KEM-512/768/1024 vs RSA-2048/3072/4096 vs ECC-256/384. Measure: speed (ops/sec), key size, ciphertext size, CPU cycles if possible.
+- A+B: Write security comparison table (classical bit security vs quantum resistance, known attacks e.g. Shor's algo breaks RSA/ECC, best known attack on Module-LWE)
+
+Day 10-11:
+- All: Consolidate results into charts/graphs (bar charts for size, line charts for speed vs security level)
+- D: Write results/discussion section, interpret why ML-KEM wins on speed+quantum safety but loses on ciphertext size sometimes
+- A: Add attack cost estimates (use lattice estimator if possible, cite Albrecht et al.)
+
+Day 12:
+- All: Build slide deck. Include: intro, math foundation, algorithm walkthrough, security proof sketch, benchmark results, conclusion.
+- Rehearse: each member explains their section, cross-check nobody has gaps.
+
+Day 13:
+- Full dry run presentation. Get feedback from within team, fix weak spots.
+- Finalize report (abstract, intro, background, methodology, results, conclusion, references).
+
+Day 14:
+- Buffer day. Polish visuals, proofread report, backup demo code, prepare live demo of running keygen/encaps/decaps with timing shown on screen.
+
+**What impresses faculty specifically**
+- Working demo (not just slides), show it running live
+- At least one derivation shown by hand (e.g. simplified LWE hardness intuition, not just citation)
+- Actual benchmark numbers on your own machine, not copy-pasted from papers
+- Honest limitations section (e.g. side-channel resistance not covered, implementation not constant-time)
+- Clean reference list using the baseline papers already discussed

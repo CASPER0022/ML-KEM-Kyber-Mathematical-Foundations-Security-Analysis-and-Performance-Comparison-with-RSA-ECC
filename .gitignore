@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+
+# Local builds of liboqs (Step 09) -- rebuild locally, don't commit
+liboqs/
+liboqs-python/
+
+# Generated charts (regenerate with bench/plots.py); keep CSVs and machine.txt
+mlkem/results/*.png
+
+# Editors / OS
+.vscode/
+.idea/
+.claude/
+*.swp
+Thumbs.db
+Desktop.ini
+.DS_Store

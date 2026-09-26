@@ -1,0 +1,15 @@
+[project]
+name = "mlkem"
+version = "0.1.0"
+description = "Educational pure-Python implementation of ML-KEM (FIPS 203)"
+requires-python = ">=3.10"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
