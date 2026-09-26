@@ -7,7 +7,7 @@
 
 ## 3a. `params.py`
 
-Write a small frozen dataclass `Params(name, k, eta1, eta2, du, dv)` and three instances: `ML_KEM_512`, `ML_KEM_768`, `ML_KEM_1024`, with the values from Step 02. Put `N = 256` and `Q = 3329` as module constants.
+✅ **Already done in Step 02**: `Params` dataclass, `ML_KEM_512/768/1024`, `N`, `Q`, `ZETA`, size properties (`ek_size`, `dk_size`, `ct_size`), and tests in `tests/test_params.py`.
 
 ---
 
