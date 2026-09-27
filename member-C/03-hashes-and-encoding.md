@@ -63,13 +63,13 @@ def decompress(y, d): return (y * Q + (1 << (d - 1))) >> d
 
 ## Tests (`tests/test_encoding.py`)
 
-- [ ] `BytesToBits(BitsToBytes(bits)) == bits` for random bit lists (length a multiple of 8)
-- [ ] For each `d` in `1..12`: `ByteDecode_d(ByteEncode_d(F)) == F` for random valid `F`
-- [ ] `len(ByteEncode_d(F)) == 32*d`
-- [ ] `ByteDecode_12` of bytes that encode 4095 returns `4095 % 3329`
-- [ ] Compress/decompress error bound: for all `x` in `[0, q)`,
+- [x] `BytesToBits(BitsToBytes(bits)) == bits` for random bit lists (length a multiple of 8)
+- [x] For each `d` in `1..12`: `ByteDecode_d(ByteEncode_d(F)) == F` for random valid `F`
+- [x] `len(ByteEncode_d(F)) == 32*d`
+- [x] `ByteDecode_12` of bytes that encode 4095 returns `4095 % 3329`
+- [x] Compress/decompress error bound: for all `x` in `[0, q)`,
       `|decompress(compress(x,d),d) − x| mod± q  ≤  round(q / 2^(d+1))`
       (a centered difference; this is the error that K-PKE decryption has to tolerate)
-- [ ] `H(b'')` equals `hashlib.sha3_256(b'').digest()` (trivial, but catches wiring errors)
+- [x] `H(b'')` equals `hashlib.sha3_256(b'').digest()` (trivial, but catches wiring errors)
 
 ## ✅ Done when all tests pass. Next: Step 04.
