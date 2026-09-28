@@ -1,0 +1,4 @@
+param_set,decryptions,coefficients,max_abs_noise,mean_max_abs_noise,max_over_q4
+ML-KEM-512,300,76800,345,216.49333333333334,0.415
+ML-KEM-768,300,76800,284,207.95,0.341
+ML-KEM-1024,300,76800,236,173.11333333333334,0.284
