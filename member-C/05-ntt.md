@@ -68,8 +68,8 @@ This is multiplication in `Z_q[X]/(X² − γ)`. You can derive it by hand (anot
 
 ## Tests (`tests/test_ntt.py`): these are what make the NTT trustworthy
 
-- [ ] **Round trip:** `NTT⁻¹(NTT(f)) == f` for 100 random `f`
-- [ ] **Correctness against schoolbook multiplication.** Write a slow reference:
+- [x] **Round trip:** `NTT⁻¹(NTT(f)) == f` for 100 random `f`
+- [x] **Correctness against schoolbook multiplication.** Write a slow reference:
   ```python
   def schoolbook_mul(a, b):            # multiplication in Z_q[X]/(X^256 + 1)
       c = [0]*512
@@ -80,8 +80,8 @@ This is multiplication in `Z_q[X]/(X² − γ)`. You can derive it by hand (anot
   ```
   Check: `NTT⁻¹(MultiplyNTTs(NTT(a), NTT(b))) == schoolbook_mul(a, b)` for random a, b.
   **If this passes, your NTT is correct.**
-- [ ] Linearity: `NTT(a+b) == NTT(a) + NTT(b)`
-- [ ] Tables match FIPS 203 Appendix A
+- [x] Linearity: `NTT(a+b) == NTT(a) + NTT(b)`
+- [x] Tables match FIPS 203 Appendix A
 
 ## Benchmark teaser for the report
 Time `schoolbook_mul` vs the NTT-based multiply in pure Python. The speedup is a concrete number Member A can use to explain why the ring structure matters.
