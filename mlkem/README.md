@@ -47,7 +47,7 @@ python bench/plots.py                       # charts fig1-fig7 + results/bench_t
 | `tests/` | Unit tests, NIST ACVP test-vector tests, interop tests |
 | `vectors/` | NIST ACVP JSON test vectors |
 | `bench/` | Benchmark harness (ML-KEM vs RSA vs ECC) |
-| `results/` | Benchmark CSVs, machine specs, charts |
+| `results/` | Benchmark CSVs, machine specs, charts -- start with [`results/README.md`](results/README.md) |
 | `demo/` | Live demo script |
 
 ## References
