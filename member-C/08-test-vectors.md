@@ -60,6 +60,6 @@ Do the same for the encapDecap groups. Branch on the group's `function` field (`
 Print intermediate values and compare them with a known-good implementation (Step 09's library, or the pure-Python `kyber-py` project on GitHub by Giacomo Pope as a readable reference). Compare against it, **don't copy** it.
 
 ## ✅ Checkpoint (Day 6–7): report this to the team
-- [ ] `pytest tests/test_acvp.py -q` → **all pass** for 512/768/1024
-- [ ] Screenshot of the green test output for the report and slides
-- [ ] Short note in the report: "Our implementation passes N/N NIST ACVP test vectors"
+- [x] `pytest tests/test_acvp.py -q` → **all pass** for 512/768/1024 (240/240)
+- [ ] Screenshot of the green test output (text log saved in `mlkem/results/acvp_test_output.txt`; take the screenshot yourself) for the report and slides
+- [x] Short note in the report: "Our implementation passes 240/240 NIST ACVP test vectors"
