@@ -34,7 +34,7 @@ Without it, the interop tests and liboqs benchmarks are skipped automatically.
 cd mlkem && source .venv/Scripts/activate
 python demo/demo.py                         # live demo, ML-KEM-768 (--params 512|1024, --impl liboqs, --fast, --vectors)
 pytest tests/test_acvp.py -q                # 240 NIST ACVP vectors
-python bench/run_all.py                     # full benchmark -> results/bench.csv (~25 min)
+python bench/run_all.py                     # full benchmark -> results/bench.csv (~10-25 min)
 python bench/profile_mlkem.py               # where pure-Python time goes
 python bench/plots.py                       # charts fig1-fig7 + results/bench_tables.md
 ```

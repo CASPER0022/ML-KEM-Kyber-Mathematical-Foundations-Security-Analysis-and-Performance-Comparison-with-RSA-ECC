@@ -98,24 +98,24 @@ IQRs: `mlkem/results/bench_tables.md`; charts: `mlkem/results/fig1..fig7`.
 
 | Operation (µs) | ML-KEM-768 liboqs | RSA-3072 | RSA-7680 | P-384 | X25519 |
 |---|---:|---:|---:|---:|---:|
-| keygen | 115 | 207,895 | 7,618,685 | 1,408 | 39 |
-| encaps | 118 | 52 | 321 | 2,142 | 80 |
-| decaps | 52 | 2,073 | 63,524 | 882 | 35 |
-| **total** | **285** | **210,020** | **7,682,529** | **4,432** | **153** |
+| keygen | 77 | 130,422 | 3,606,452 | 616 | 27 |
+| encaps | 78 | 37 | 188 | 1,255 | 55 |
+| decaps | 37 | 1,431 | 30,223 | 601 | 25 |
+| **total** | **192** | **131,889** | **3,636,863** | **2,471** | **108** |
 
-- **ML-KEM beats RSA by orders of magnitude** in key generation (RSA-3072 ~1,800×
-  slower, RSA-7680 ~66,000×) and decapsulation (RSA-3072 ~40×, RSA-7680 ~1,200×).
-- **RSA encryption alone is fast** (35-320 µs, small exponent e = 65537); this is
+- **ML-KEM beats RSA by orders of magnitude** in key generation (RSA-3072 ~1,700×
+  slower, RSA-7680 ~47,000×) and decapsulation (RSA-3072 ~40×, RSA-7680 ~830×).
+- **RSA encryption alone is fast** (20-190 µs, small exponent e = 65537); this is
   the one operation where RSA is competitive, and we say so.
-- **ML-KEM beats NIST P-curves at matched security**: ML-KEM-768 total 285 µs vs
-  P-384 4,432 µs (~15×); ML-KEM-1024 358 µs vs P-521 8,379 µs (~23×).
-- **X25519 is still the fastest classical option** (153 µs total), slightly faster
-  than ML-KEM-512 (237 µs) in our measurements, but it offers no quantum
+- **ML-KEM beats NIST P-curves at matched security**: ML-KEM-768 total 192 µs vs
+  P-384 2,471 µs (~13×); ML-KEM-1024 242 µs vs P-521 5,329 µs (~22×).
+- **X25519 is still the fastest classical option** (108 µs total), faster than
+  ML-KEM-512 (156 µs) in our measurements, but it offers no quantum
   resistance, and our liboqs build used portable C (no AVX2), so ML-KEM's
   numbers are conservative.
-- **Scaling (Fig 3):** from 128-bit to 256-bit security ML-KEM's cost grows only
-  ~1.5×; RSA keygen grows ~37× just from 3072 to 7680 bits; P-curves grow ~40×
-  from P-256 to P-521.
+- **Scaling (Fig 3):** from 128-bit to 256-bit security ML-KEM's total cost grows
+  only ~1.5×; RSA keygen grows ~28× just from 3072 to 7680 bits; P-curves grow
+  ~44× from P-256 to P-521.
 
 ### 3.3 Size (Fig 1 and Fig 7): where ML-KEM loses
 
@@ -129,19 +129,20 @@ ML-KEM-768 sends ~35× more bytes than X25519 and ~2.8× more than RSA-3072.
 Bandwidth, not CPU time, is the main practical cost of post-quantum key exchange.
 
 ### 3.4 Implementation matters (Fig 4)
-Our pure-Python ML-KEM is **39× to 204× slower** than liboqs C for the same
-algorithm (e.g. ML-KEM-768: 20.5 ms vs 0.29 ms per keygen + encaps + decaps).
+Our pure-Python ML-KEM is **36× to 158× slower** than liboqs C for the same
+algorithm (e.g. ML-KEM-768: 13.9 ms vs 0.19 ms per keygen + encaps + decaps).
 Profiling (cProfile) shows where Python time goes: CBD noise sampling ~30%,
 encoding/compression ~20-25%, matrix generation (SampleNTT) ~15%, NTT ~10-15%,
 hashing < 1% (SHA-3 runs in C inside `hashlib`). NTT multiplication itself is
 ~10× faster than schoolbook multiplication even in Python (Step 05 benchmark).
 
 ### 3.5 Measurement quality
-Run-to-run spread of medians was 20-100%, and IQRs are wide. Likely causes:
-Windows power management and the hybrid P-core/E-core CPU. Orders of magnitude
-(which is what the conclusions rely on) are stable across runs; individual
-numbers should be read as ±30%. **Before final submission, rerun
-`bench/run_all.py` plugged in with Windows "Best performance" mode.**
+Final run: laptop on AC power, Windows power mode "Best performance". Across all
+48 measurements the median run-to-run spread was 5% and the median IQR 11% of
+the median. Exceptions: RSA key generation (IQR ~80-100%, inherent: random prime
+search) and a few pure-Python ML-KEM-768/1024 operations (one of three runs was
+disturbed, spread up to 81%). An earlier run in "Balanced" mode was ~40% slower
+with ~40% spread, which is why power settings are part of the method.
 
 ## 4. Limitations (honest assessment)
 
@@ -155,7 +156,7 @@ numbers should be read as ±30%. **Before final submission, rerun
   resistance, no fault detection.
 - **No secure memory handling:** secret keys and shared secrets are not zeroized,
   and Python cannot guarantee that anyway (immutable `bytes`, garbage collector copies).
-- **Performance:** the pure-Python code is 39-204× slower than liboqs C
+- **Performance:** the pure-Python code is 36-158× slower than liboqs C
   (see Fig 4). That is why the RSA/ECC comparison uses liboqs and OpenSSL.
 - **liboqs ran its portable C code, not AVX2:** liboqs 0.16.0 only enables its AVX2
   ML-KEM code on Linux/macOS. On Linux, ML-KEM would be faster still, so our ML-KEM
@@ -178,7 +179,7 @@ pytest -q                                # all tests (442)
 pytest tests/test_acvp.py -q             # NIST vectors only (240)
 python demo/demo.py                      # live demo (ML-KEM-768)
 python demo/demo.py --impl liboqs --params 1024
-python bench/run_all.py                  # full benchmark (~25 min)
+python bench/run_all.py                  # full benchmark (~10-25 min)
 python bench/plots.py                    # all charts + tables from bench.csv
 bash scripts/build_liboqs.sh             # optional: build liboqs (Step 09)
 ```
