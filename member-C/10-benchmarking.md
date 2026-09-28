@@ -58,9 +58,9 @@ def bench(fn, *, warmup=20, iters=1000, min_time_s=2.0):
 
 ## 5. Reliable measurement checklist
 - [ ] Laptop **plugged in**, Windows power mode "Best performance", other apps closed
-- [ ] Run each suite **3 times**, confirm the results are stable (note the variance)
-- [ ] Record Python, `cryptography`, and liboqs versions plus `results/machine.txt` in the CSV header or a JSON sidecar
-- [ ] Never compare Python-ML-KEM against C-RSA without labelling it as such
+- [x] Run each suite **3 times**, confirm the results are stable (note the variance) -- done; run-to-run spread 20-100% (see `run_spread_pct`), orders of magnitude stable. Rerun plugged in before final.
+- [x] Record Python, `cryptography`, and liboqs versions plus `results/machine.txt` in the CSV header or a JSON sidecar (`results/bench_meta.json`)
+- [x] Never compare Python-ML-KEM against C-RSA without labelling it as such (`impl` column; Fig 2 is compiled-only)
 
 ## 6. Extra experiments (cheap, and they look good in the report)
 - Time breakdown inside ML-KEM (Python track): how much goes to SampleNTT/Â generation vs NTT vs hashing (`cProfile`)
@@ -70,4 +70,4 @@ def bench(fn, *, warmup=20, iters=1000, min_time_s=2.0):
 
 ## ✅ Done when
 - [ ] `results/bench.csv` complete for all schemes/ops, reviewed with D
-- [ ] Numbers sanity-checked: liboqs ML-KEM encaps/decaps should be in the **tens of µs** range, much faster than RSA decrypt (ms). RSA **encrypt** is very fast (small e). ECDH is in between. If you see something wildly different, investigate before trusting it.
+- [x] Numbers sanity-checked: liboqs ML-KEM encaps/decaps should be in the **tens of µs** range, much faster than RSA decrypt (ms). RSA **encrypt** is very fast (small e). ECDH is in between. If you see something wildly different, investigate before trusting it. -- liboqs ML-KEM is ~35-145 µs (portable C, no AVX2 on Windows, plus Python call overhead), still far below RSA decrypt.

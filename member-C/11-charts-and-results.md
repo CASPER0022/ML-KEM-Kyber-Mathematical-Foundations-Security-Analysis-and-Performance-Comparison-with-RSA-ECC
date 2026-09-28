@@ -28,5 +28,5 @@ Turn `results/bench.csv` into clean charts for D's results section and the slide
 - Python-track numbers show algorithmic structure, not deployable performance
 
 ## ✅ Done when
-- [ ] All charts regenerate from one command: `python bench/plots.py`
+- [x] All charts regenerate from one command: `python bench/plots.py`
 - [ ] D has the PNGs + Markdown tables + interpretation notes

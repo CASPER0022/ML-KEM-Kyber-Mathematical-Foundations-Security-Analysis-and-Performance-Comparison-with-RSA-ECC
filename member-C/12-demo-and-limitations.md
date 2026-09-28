@@ -19,7 +19,7 @@ CLI flags: `--params 512|768|1024`, `--impl python|liboqs`, `--fast` (skip the b
 
 ## 2. Rehearsal checklist
 - [ ] Demo runs from a **fresh terminal** with one command (write it on a sticky note)
-- [ ] Works **offline** (vectors committed, no pip installs during the demo)
+- [x] Works **offline** (vectors committed, no pip installs during the demo)
 - [ ] Font size large, terminal dark theme, window pre-sized
 - [ ] You can answer these likely faculty questions:
   - Why is the NTT possible with q = 3329? (256 | q − 1)
