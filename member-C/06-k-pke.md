@@ -77,9 +77,9 @@ Each coefficient of `μ` is 0 or ≈ q/2. As long as the noise stays below q/4, 
 
 ## Tests (`tests/test_kpke.py`)
 
-- [ ] Output sizes: `|ek| == 384k+32`, `|dk| == 384k`, `|c| == 32(du·k + dv)` for all 3 parameter sets
-- [ ] **Round trip:** for 200 random `(d, m, r)`: `Decrypt(dk, Encrypt(ek, m, r)) == m`
-- [ ] Deterministic: same `(d)` → same keys, same `(ek, m, r)` → same ciphertext
-- [ ] **Experiment for the report:** track the noise term `‖w − μ‖∞` (centered) over many decryptions and plot it against the q/4 threshold. This visual shows *why* the failure rate is tiny.
+- [x] Output sizes: `|ek| == 384k+32`, `|dk| == 384k`, `|c| == 32(du·k + dv)` for all 3 parameter sets
+- [x] **Round trip:** for 200 random `(d, m, r)`: `Decrypt(dk, Encrypt(ek, m, r)) == m`
+- [x] Deterministic: same `(d)` → same keys, same `(ek, m, r)` → same ciphertext
+- [x] **Experiment for the report:** track the noise term `‖w − μ‖∞` (centered) over many decryptions and plot it against the q/4 threshold. This visual shows *why* the failure rate is tiny.
 
 ## ✅ Done when all tests pass. Next: Step 07.
