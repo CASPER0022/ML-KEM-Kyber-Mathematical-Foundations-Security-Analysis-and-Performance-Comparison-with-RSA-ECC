@@ -43,10 +43,10 @@ for i in 0..255:
 
 ## Tests (`tests/test_sampling.py`)
 
-- [ ] `SampleNTT` returns exactly 256 values, all in `[0, q)`, and is deterministic for the same input
-- [ ] `SampleNTT(ρ‖j‖i) != SampleNTT(ρ‖i‖j)` for i ≠ j (sanity check that the order matters)
-- [ ] `SamplePolyCBD_η` values mapped to centered form (`v if v <= q//2 else v - q`) all lie in `[-η, η]`
-- [ ] **Distribution check (nice chart for the report!):** over 10,000 random samples with η=2, the histogram of centered values ≈ `[1, 4, 6, 4, 1] / 16` for `-2..2`. For η=3: `[1,6,15,20,15,6,1] / 64`.
-- [ ] Input length check: raise an error if `len(B) != 64*η`
+- [x] `SampleNTT` returns exactly 256 values, all in `[0, q)`, and is deterministic for the same input
+- [x] `SampleNTT(ρ‖j‖i) != SampleNTT(ρ‖i‖j)` for i ≠ j (sanity check that the order matters)
+- [x] `SamplePolyCBD_η` values mapped to centered form (`v if v <= q//2 else v - q`) all lie in `[-η, η]`
+- [x] **Distribution check (nice chart for the report!):** over 10,000 random samples with η=2, the histogram of centered values ≈ `[1, 4, 6, 4, 1] / 16` for `-2..2`. For η=3: `[1,6,15,20,15,6,1] / 64`.
+- [x] Input length check: raise an error if `len(B) != 64*η`
 
 ## ✅ Done when all tests pass. Next: Step 05 (the hardest one; budget time for it).
