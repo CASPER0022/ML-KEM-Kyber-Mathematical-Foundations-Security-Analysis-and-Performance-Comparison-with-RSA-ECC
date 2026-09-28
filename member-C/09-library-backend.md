@@ -51,6 +51,6 @@ Bonus: liboqs also builds `speed_kem` and `test_kem` executables (drop `-DOQS_BU
 Interop between two independent implementations is strong evidence. Put it in the report.
 
 ## ✅ Done when
-- [ ] liboqs ML-KEM-512/768/1024 round-trip in Python
-- [ ] Interop test passes in both directions (`tests/test_interop.py`, skipped automatically if `oqs` isn't installed)
-- [ ] You've written down the exact library version and commit hash (for reproducibility in the report)
+- [x] liboqs ML-KEM-512/768/1024 round-trip in Python (liboqs 0.16.0, built with MinGW gcc; portable C path, no AVX2 on Windows)
+- [x] Interop test passes in both directions, plus byte-for-byte seeded keygen vs liboqs and pyca (`tests/test_interop.py`, skipped automatically if `oqs` isn't installed)
+- [x] You've written down the exact library version and commit hash (for reproducibility in the report) -- see `mlkem/results/machine.txt`
