@@ -74,15 +74,25 @@ def check_ek(p: Params, ek: bytes) -> None:
             raise ValueError("ek modulus check failed: a coefficient is >= q")
 
 
-def check_decaps_inputs(p: Params, dk: bytes, c: bytes) -> None:
-    """Section 7.3: ciphertext type check, dk type check and hash check."""
+def check_ciphertext(p: Params, c: bytes) -> None:
+    """Section 7.3, check 1: ciphertext type check."""
     if len(c) != p.ct_size:
         raise ValueError(f"c must be {p.ct_size} bytes, got {len(c)}")
+
+
+def check_dk(p: Params, dk: bytes) -> None:
+    """Section 7.3, checks 2 and 3: dk type check and hash check."""
     if len(dk) != p.dk_size:
         raise ValueError(f"dk must be {p.dk_size} bytes, got {len(dk)}")
     k = p.k
     if H(dk[384 * k:768 * k + 32]) != dk[768 * k + 32:768 * k + 64]:
         raise ValueError("dk hash check failed: stored H(ek) does not match ek")
+
+
+def check_decaps_inputs(p: Params, dk: bytes, c: bytes) -> None:
+    """Section 7.3: all decapsulation input checks."""
+    check_ciphertext(p, c)
+    check_dk(p, dk)
 
 
 # ---------------------------------------------------------------------------
