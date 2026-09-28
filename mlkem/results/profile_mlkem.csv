@@ -1,64 +1,64 @@
 scheme,op,bucket,share_pct
-ML-KEM-512,keygen,CBD sampling,34.4
-ML-KEM-512,keygen,encode / compress,25.6
-ML-KEM-512,keygen,"other (Python overhead, bytes, lists)",13.9
-ML-KEM-512,keygen,NTT / NTT^-1,9.7
-ML-KEM-512,keygen,matrix gen (SampleNTT),9.6
-ML-KEM-512,keygen,NTT-domain multiply,5.6
-ML-KEM-512,keygen,hashing (SHA-3 / SHAKE),1.1
-ML-KEM-512,encaps,CBD sampling,34.0
-ML-KEM-512,encaps,encode / compress,28.0
-ML-KEM-512,encaps,"other (Python overhead, bytes, lists)",12.9
-ML-KEM-512,encaps,NTT / NTT^-1,9.8
+ML-KEM-512,keygen,CBD sampling,34.5
+ML-KEM-512,keygen,encode / compress,26.0
+ML-KEM-512,keygen,"other (Python overhead, bytes, lists)",14.4
+ML-KEM-512,keygen,NTT / NTT^-1,9.9
+ML-KEM-512,keygen,matrix gen (SampleNTT),9.1
+ML-KEM-512,keygen,NTT-domain multiply,5.3
+ML-KEM-512,keygen,hashing (SHA-3 / SHAKE),0.8
+ML-KEM-512,encaps,CBD sampling,33.8
+ML-KEM-512,encaps,encode / compress,27.9
+ML-KEM-512,encaps,"other (Python overhead, bytes, lists)",12.7
+ML-KEM-512,encaps,NTT / NTT^-1,10.4
 ML-KEM-512,encaps,matrix gen (SampleNTT),7.6
-ML-KEM-512,encaps,NTT-domain multiply,6.9
-ML-KEM-512,encaps,hashing (SHA-3 / SHAKE),0.9
-ML-KEM-512,decaps,encode / compress,29.0
-ML-KEM-512,decaps,CBD sampling,28.8
-ML-KEM-512,decaps,NTT / NTT^-1,14.6
-ML-KEM-512,decaps,"other (Python overhead, bytes, lists)",11.3
-ML-KEM-512,decaps,NTT-domain multiply,8.4
-ML-KEM-512,decaps,matrix gen (SampleNTT),6.8
-ML-KEM-512,decaps,hashing (SHA-3 / SHAKE),1.0
-ML-KEM-768,keygen,CBD sampling,33.4
-ML-KEM-768,keygen,encode / compress,19.5
-ML-KEM-768,keygen,matrix gen (SampleNTT),15.0
-ML-KEM-768,keygen,"other (Python overhead, bytes, lists)",11.3
+ML-KEM-512,encaps,NTT-domain multiply,7.0
+ML-KEM-512,encaps,hashing (SHA-3 / SHAKE),0.6
+ML-KEM-512,decaps,encode / compress,29.3
+ML-KEM-512,decaps,CBD sampling,29.2
+ML-KEM-512,decaps,NTT / NTT^-1,13.8
+ML-KEM-512,decaps,"other (Python overhead, bytes, lists)",11.8
+ML-KEM-512,decaps,NTT-domain multiply,8.2
+ML-KEM-512,decaps,matrix gen (SampleNTT),6.6
+ML-KEM-512,decaps,hashing (SHA-3 / SHAKE),1.2
+ML-KEM-768,keygen,CBD sampling,33.3
+ML-KEM-768,keygen,encode / compress,19.8
+ML-KEM-768,keygen,matrix gen (SampleNTT),15.2
+ML-KEM-768,keygen,"other (Python overhead, bytes, lists)",11.7
 ML-KEM-768,keygen,NTT / NTT^-1,10.6
-ML-KEM-768,keygen,NTT-domain multiply,9.1
-ML-KEM-768,keygen,hashing (SHA-3 / SHAKE),1.0
-ML-KEM-768,encaps,CBD sampling,31.3
+ML-KEM-768,keygen,NTT-domain multiply,8.6
+ML-KEM-768,keygen,hashing (SHA-3 / SHAKE),0.9
+ML-KEM-768,encaps,CBD sampling,31.5
 ML-KEM-768,encaps,encode / compress,23.8
-ML-KEM-768,encaps,matrix gen (SampleNTT),14.0
-ML-KEM-768,encaps,"other (Python overhead, bytes, lists)",11.1
+ML-KEM-768,encaps,matrix gen (SampleNTT),13.5
+ML-KEM-768,encaps,"other (Python overhead, bytes, lists)",11.0
+ML-KEM-768,encaps,NTT-domain multiply,9.7
 ML-KEM-768,encaps,NTT / NTT^-1,9.6
-ML-KEM-768,encaps,NTT-domain multiply,9.2
 ML-KEM-768,encaps,hashing (SHA-3 / SHAKE),0.9
-ML-KEM-768,decaps,CBD sampling,27.9
-ML-KEM-768,decaps,encode / compress,25.2
-ML-KEM-768,decaps,NTT / NTT^-1,13.8
-ML-KEM-768,decaps,matrix gen (SampleNTT),12.3
-ML-KEM-768,decaps,NTT-domain multiply,10.1
-ML-KEM-768,decaps,"other (Python overhead, bytes, lists)",9.9
+ML-KEM-768,decaps,CBD sampling,28.7
+ML-KEM-768,decaps,encode / compress,24.8
+ML-KEM-768,decaps,NTT / NTT^-1,12.9
+ML-KEM-768,decaps,matrix gen (SampleNTT),11.9
+ML-KEM-768,decaps,"other (Python overhead, bytes, lists)",10.6
+ML-KEM-768,decaps,NTT-domain multiply,10.3
 ML-KEM-768,decaps,hashing (SHA-3 / SHAKE),0.8
-ML-KEM-1024,keygen,CBD sampling,30.4
-ML-KEM-1024,keygen,matrix gen (SampleNTT),19.4
-ML-KEM-1024,keygen,encode / compress,18.4
-ML-KEM-1024,keygen,NTT-domain multiply,10.9
-ML-KEM-1024,keygen,"other (Python overhead, bytes, lists)",10.6
-ML-KEM-1024,keygen,NTT / NTT^-1,9.5
-ML-KEM-1024,keygen,hashing (SHA-3 / SHAKE),0.8
-ML-KEM-1024,encaps,CBD sampling,29.6
+ML-KEM-1024,keygen,CBD sampling,30.9
+ML-KEM-1024,keygen,encode / compress,18.3
+ML-KEM-1024,keygen,matrix gen (SampleNTT),18.3
+ML-KEM-1024,keygen,"other (Python overhead, bytes, lists)",11.2
+ML-KEM-1024,keygen,NTT-domain multiply,10.7
+ML-KEM-1024,keygen,NTT / NTT^-1,9.6
+ML-KEM-1024,keygen,hashing (SHA-3 / SHAKE),1.0
+ML-KEM-1024,encaps,CBD sampling,30.0
 ML-KEM-1024,encaps,encode / compress,22.8
-ML-KEM-1024,encaps,matrix gen (SampleNTT),16.4
+ML-KEM-1024,encaps,matrix gen (SampleNTT),16.1
 ML-KEM-1024,encaps,NTT-domain multiply,10.7
-ML-KEM-1024,encaps,"other (Python overhead, bytes, lists)",10.6
+ML-KEM-1024,encaps,"other (Python overhead, bytes, lists)",10.5
 ML-KEM-1024,encaps,NTT / NTT^-1,9.1
 ML-KEM-1024,encaps,hashing (SHA-3 / SHAKE),0.8
-ML-KEM-1024,decaps,CBD sampling,27.0
+ML-KEM-1024,decaps,CBD sampling,26.9
 ML-KEM-1024,decaps,encode / compress,23.1
-ML-KEM-1024,decaps,matrix gen (SampleNTT),14.5
-ML-KEM-1024,decaps,NTT / NTT^-1,12.8
-ML-KEM-1024,decaps,NTT-domain multiply,11.9
-ML-KEM-1024,decaps,"other (Python overhead, bytes, lists)",9.9
+ML-KEM-1024,decaps,matrix gen (SampleNTT),14.3
+ML-KEM-1024,decaps,NTT / NTT^-1,13.0
+ML-KEM-1024,decaps,NTT-domain multiply,12.3
+ML-KEM-1024,decaps,"other (Python overhead, bytes, lists)",9.6
 ML-KEM-1024,decaps,hashing (SHA-3 / SHAKE),0.8
