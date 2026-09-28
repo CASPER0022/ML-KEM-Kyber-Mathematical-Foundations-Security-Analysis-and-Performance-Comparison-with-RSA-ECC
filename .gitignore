@@ -14,9 +14,6 @@ venv/
 liboqs/
 liboqs-python/
 
-# Generated charts (regenerate with bench/plots.py); keep CSVs and machine.txt
-mlkem/results/*.png
-
 # Editors / OS
 .vscode/
 .idea/

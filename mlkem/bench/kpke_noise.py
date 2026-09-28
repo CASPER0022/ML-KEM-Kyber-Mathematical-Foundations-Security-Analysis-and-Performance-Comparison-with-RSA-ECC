@@ -5,7 +5,7 @@ w - mu (centered) that Decrypt has to round away. Decryption fails only if a
 coefficient's noise reaches q/4 = 832.
 
 Run from mlkem/:  .venv/Scripts/python bench/kpke_noise.py [trials]
-Writes results/kpke_noise.csv and results/kpke_noise.png (fig6_noise.png via plots.py).
+Writes results/kpke_noise.csv and results/fig6_noise.png.
 """
 import csv
 import random
@@ -45,7 +45,7 @@ def measure(p, trials, rng):
     return hist, maxima
 
 
-def main(trials=None, out_name="kpke_noise.png"):
+def main(trials=None, out_name="fig6_noise.png"):
     if trials is None:
         trials = int(sys.argv[1]) if __name__ == "__main__" and len(sys.argv) > 1 else 300
     rng = random.Random(2026)
