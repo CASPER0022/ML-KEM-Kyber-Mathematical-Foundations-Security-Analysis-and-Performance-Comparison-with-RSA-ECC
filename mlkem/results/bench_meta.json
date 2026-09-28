@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-28T13:00:29",
+  "machine": [
+    "CPU: 12th Gen Intel(R) Core(TM) i5-12450HX",
+    "Cores: 8 physical / 12 logical",
+    "Max clock: 2400 MHz",
+    "RAM: 15.7 GB",
+    "OS: Windows-11-10.0.26200-SP0",
+    "Python: 3.13.7 (CPython)",
+    "cryptography: 50.0.1",
+    "Note: \"Max clock\" is the base clock reported by Windows; turbo is higher.",
+    "Note: hybrid CPU (4 P-cores + 4 E-cores) -- benchmark variance can come from core scheduling.",
+    "",
+    "# Step 09 -- optimized ML-KEM backends (Track 2)",
+    "liboqs: 0.16.0 (git tag 0.16.0, commit 5a1a854b0dc9f2141bdc771c555ee60c37950183)",
+    "liboqs build: MinGW-w64 gcc 15.2.0, CMake 4.1.0, Ninja, Release, shared, OQS_DIST_BUILD=ON, OQS_USE_OPENSSL=OFF, ML-KEM only",
+    "liboqs ML-KEM code path: portable C reference (\"ref\") -- liboqs 0.16.0 enables the AVX2 (mlkem-native x86_64) backend only on Linux/macOS, so on Windows it is NOT used. Numbers are C-vs-C but not the fastest possible.",
+    "liboqs-python: 0.16.0.1 (git tag 0.16.0.1)",
+    "pyca/cryptography: 50.0.1 (ML-KEM-768/1024 only; no ML-KEM-512)"
+  ],
+  "platform": "Windows-11-10.0.26200-SP0",
+  "versions": {
+    "python": "3.13.7",
+    "cryptography": "50.0.1",
+    "openssl": "OpenSSL 4.0.2 25 Aug 2026",
+    "liboqs": "0.16.0",
+    "liboqs_python": "0.16.0.1"
+  },
+  "runs": 3,
+  "quick": false,
+  "timer": "time.perf_counter_ns, GC disabled during timing; median + IQR over samples pooled from all runs",
+  "est_cycles": "ESTIMATE = median time x 2.4 GHz nominal base clock (turbo is higher); not measured",
+  "peak_mem_bytes": "tracemalloc peak for one op: Python-level allocations only (C/OpenSSL/liboqs malloc invisible)",
+  "run_spread_pct": "(max - min) / median of the per-run medians",
+  "impls": {
+    "python": "this project's pure-Python FIPS 203 implementation (Track 1)",
+    "liboqs": "liboqs C, portable reference code path (no AVX2 on Windows builds)",
+    "pyca": "pyca/cryptography -> OpenSSL"
+  },
+  "kem_mapping": "Step 10 (co-owned with Member D): RSA and ECC as KEM-equivalents, via pyca/cryptography (OpenSSL).\n\nKEM mapping (agreed in the Step 10 guide):\n  RSA-n : keygen = generate (e = 65537); encaps = RSA-OAEP(SHA-256) encrypt a\n          random 32-byte key; decaps = OAEP decrypt\n  ECDH  : keygen = static key pair; encaps = fresh ephemeral key + ECDH with\n          the static public key (ECIES-style); decaps = ECDH(static priv, eph pub)\n\nSize encodings:\n  RSA  pk = DER SubjectPublicKeyInfo, sk = DER PKCS#8, ct = modulus length\n  EC   pk = ct = X9.62 uncompressed point (P-curves) or raw 32 B (X25519),\n       sk = raw private scalar length\n  ss   RSA = the 32-byte key it transports; ECDH = raw shared x-coordinate\n",
+  "not_measured": "RSA-15360 (256-bit level) omitted: keygen takes minutes per key"
+}
