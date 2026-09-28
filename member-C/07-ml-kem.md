@@ -81,12 +81,12 @@ Raise `ValueError` on failure.
 
 ## Tests (`tests/test_mlkem.py`)
 
-- [ ] For all 3 parameter sets, 100 times: `K1, c = encaps(ek); K2 = decaps(dk, c); K1 == K2`, and `len(K1) == 32`
-- [ ] Sizes of `ek`, `dk`, and `c` match Table 3 (Step 02)
-- [ ] **Implicit rejection:** flip one bit of `c` → `decaps` returns a key `!= K1` **and** equal to `J(z ‖ c_tampered)`, without raising an exception
-- [ ] **Modulus check:** craft an `ek` with a coefficient 4095 → `encaps` raises `ValueError`
-- [ ] **Hash check:** corrupt the stored `H(ek)` inside `dk` → `decaps` raises `ValueError`
-- [ ] Wrong lengths → `ValueError`
+- [x] For all 3 parameter sets, 100 times: `K1, c = encaps(ek); K2 = decaps(dk, c); K1 == K2`, and `len(K1) == 32`
+- [x] Sizes of `ek`, `dk`, and `c` match Table 3 (Step 02)
+- [x] **Implicit rejection:** flip one bit of `c` → `decaps` returns a key `!= K1` **and** equal to `J(z ‖ c_tampered)`, without raising an exception
+- [x] **Modulus check:** craft an `ek` with a coefficient 4095 → `encaps` raises `ValueError`
+- [x] **Hash check:** corrupt the stored `H(ek)` inside `dk` → `decaps` raises `ValueError`
+- [x] Wrong lengths → `ValueError`
 
 The implicit-rejection and tamper tests make great **live demo moments** (Step 12).
 
