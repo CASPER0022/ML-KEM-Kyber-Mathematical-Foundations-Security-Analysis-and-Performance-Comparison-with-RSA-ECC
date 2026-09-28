@@ -17,6 +17,17 @@ python -m pip install -e .
 pytest -q
 ```
 
+### Optional: liboqs (optimized C ML-KEM, Step 09)
+
+Needs git, CMake, Ninja and a C compiler (MinGW-w64 gcc works). Builds into
+`Project/liboqs/` (gitignored) and installs `liboqs-python` into the venv:
+
+```bash
+bash scripts/build_liboqs.sh
+```
+
+Without it, the interop tests and liboqs benchmarks are skipped automatically.
+
 ## Layout
 
 | Path | Contents |
